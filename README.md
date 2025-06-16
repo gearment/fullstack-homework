@@ -2,63 +2,74 @@
 
 A take-home assignment for evaluating fullstack engineers with a focus on relational database design, REST API development, and responsive UI implementation using **ReactJS**.
 
----
-
 ## 📘 Objective
 
 Design and implement a simple **Leave Management System** where employees can request leave and managers can approve/reject them.
 
----
+## 📌 Basic Requirements (For All Candidates)
 
-## 🧠 Requirements
+> These are required for **Junior**, **Mid**, and **Senior** candidates.
 
-### 1. Relational Database (PostgreSQL or MySQL)
+### 🗄️ Backend
+- [ ] `POST /login` with mock or hardcoded login (employee vs. manager)
+- [ ] `POST /leave-request`: Submit a new leave request
+- [ ] `GET /leave-request`: View your own leave requests
+- [ ] `PATCH /leave-request/:id`: Approve/reject (manager only)
+- [ ] `GET /leave-balance`: Show available leave days
+- [ ] Design relational schema with:
+  - [ ] `users` table
+  - [ ] `leave_requests` table
+  - [ ] `leave_balances` table
 
-Design a normalized schema with at least the following tables:
+### 💻 Frontend (React)
+- [ ] Login switch for user role (employee/manager)
+- [ ] Dashboard:
+  - [ ] Display leave balance
+  - [ ] Table of previous leave requests
+- [ ] Form to submit leave request
+- [ ] Manager view to approve/reject requests
+- [ ] Responsive layout using Bootstrap
 
-- `users`: name, email, role (employee, manager)
-- `leave_requests`: start_date, end_date, reason, status, created_by, approved_by
-- `leave_balances`: user_id, year, total_days, used_days
+## 🟢 Junior-Level – Optional Extras
 
-> Bonus: Add support for leave types (e.g., sick leave, unpaid leave)
+> These are **optional**, but will help you stand out.
 
----
+- [ ] Basic frontend form validation (e.g. required fields, valid dates)
+- [ ] Filter or sort leave requests table by status or date
+- [ ] Use reusable React components (`FormGroup`, `TableRow`, etc.)
+- [ ] Meaningful commit history and README
 
-### 2. Backend API
+## 🟡 Mid-Level – Additional Requirements
 
-You may use any backend framework (e.g., Node.js/Express, Go, Django).
+> If you’re applying for a **Mid-Level** position, you are expected to complete **some** of the following.
 
-Required endpoints:
+- [ ] Add support for **leave types** (annual, sick, unpaid)
+- [ ] Block **overlapping leave requests**
+- [ ] Backend folder structure: `handlers/`, `services/`, `repos/`
+- [ ] Frontend folder structure: `components/`, `pages/`, `services/`
+- [ ] 1–2 backend **unit tests** for key logic
+- [ ] Include **Dockerfile** or `docker-compose.yml` to run fullstack
 
-| Endpoint                     | Method | Auth | Description                          |
-|-----------------------------|--------|------|--------------------------------------|
-| `/api/login`                | POST   | ❌    | Simulate login (hardcoded or mocked) |
-| `/api/leave-request`        | POST   | ✅    | Create a leave request               |
-| `/api/leave-request`        | GET    | ✅    | View your leave requests             |
-| `/api/leave-request/all`    | GET    | ✅    | Manager: View team leave requests    |
-| `/api/leave-request/:id`    | PATCH  | ✅    | Approve or reject a request          |
-| `/api/leave-balance`        | GET    | ✅    | View current leave balance           |
+## 🔴 Senior-Level – Advanced Requirements
 
-> ✅ Use JWT or a simple session-based mock login system
+> If you’re applying for a **Senior** role, you are expected to complete several of the following.
 
----
+- [ ] Apply **Clean Architecture** or layered design to backend
+- [ ] Middleware for **Role-Based Access Control (RBAC)**
+- [ ] 4–5 **unit/integration tests** (e.g. for approval, validation, access control)
+- [ ] GitHub Actions (or CI pipeline) for test/lint/build
+- [ ] Add `/docs/decisions.md` with 3–5 architecture or design decisions
+- [ ] Generate **OpenAPI (Swagger)** spec for API docs
+- [ ] Use **React Context API** or simple state management for leave state
+- [ ] Handle UI edge cases (e.g. error boundaries, toast feedback)
 
-### 3. Frontend (ReactJS)
+## 📎 Tip
 
-Use React (via CRA or Vite) to build the UI.
+- You’re not expected to finish **everything**.
+- Prioritize clarity, structure, and engineering maturity over flashy features.
+- Bonus items are a chance to go deeper based on your experience level.
 
-#### Employee View:
-- Login screen
-- Dashboard showing leave balance and past requests
-- Form to submit new leave requests
-
-#### Manager View:
-- View pending leave requests
-- Approve or reject each request (modal or inline)
-
-> UI must be responsive and work on both desktop and mobile
-
----
+Good luck!
 
 ## 📦 Folder Structure
 
@@ -71,22 +82,9 @@ fullstack-homework/
 └── docker-compose.yml  # (Optional for fullstack setup)
 ```
 
----
-
-## ⚙️ Bonus Points
-
-- Dockerized setup (`docker-compose`)
-- Table filtering/search for manager view
-- Unit tests for backend APIs
-- Clear API response formats and error handling
-
----
-
 ## 🕐 Estimated Time
 
 Working days: 7 days, bonus points come with the earlier submission
-
----
 
 ## ✅ Submission Guidelines
 
@@ -94,8 +92,6 @@ Working days: 7 days, bonus points come with the earlier submission
 2. Include setup steps in a `README.md` inside each folder (`frontend/`, `backend/`)
 3. Optionally deploy or record a demo video
 4. Submit the repo link for review
-
----
 
 ## 📮 Questions?
 
